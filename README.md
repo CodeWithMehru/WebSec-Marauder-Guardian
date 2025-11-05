@@ -1,77 +1,68 @@
-# WebSec-Marauder-Guardian
+Status Prototype Educational and Defensive Demonstration
+Owner Developer CodeWithMehru
 
-**Status:** Prototype — Educational & Defensive Demonstration  
-**Owner / Developer:** CodeWithMehru
+Project summary
+Marauder is an ESP32 based wireless monitoring reference device documented as part of WebSec Marauder Guardian
+The goal is educational to show students how wireless threats can be detected and how to defend networks using passive observation and logging
+This repository reproduces advertised capabilities for transparency but the project is strictly defensive
+All offensive features that impersonate or disrupt other devices are disabled and not used
+This repo contains no code or instructions to perform attacks
 
+Advertised features factual list with offensive items disabled
+Wi Fi advertised features
+Scan APs scan for nearby access points showing SSID BSSID RSSI allowed passive
+Scan Stations discover client stations allowed passive
+Deauth Flood sending deauth packets disabled offensive
+AP Clone Spam cloning access points disabled offensive
+Karma responding to probe requests disabled offensive
+Evil Portal fake captive portal disabled offensive
 
+Bluetooth advertised features
+Bluetooth Sniffer sniff Bluetooth advertisements allowed passive
+Detect Card Skimmers detect Bluetooth enabled skimmers monitoring only allowed passive
+Sour Apple attack disabled offensive
+Swiftpair Spam disabled offensive
+Samsung BLE Spam disabled offensive
 
-## Project summary
-**Marauder** is an ESP32-based wireless monitoring reference device documented here as part of the **WebSec-Marauder-Guardian** project. The goal is educational: to show hackathon students and peers how wireless threats can be *detected* and *defended against* using passive observation and logging.
+Other advertised features
+Packet Monitor visualize Wi Fi packet density allowed passive
+Signal Monitor show RSSI and signal strength allowed passive
+GPS support for tagging events on owned networks allowed passive
+SD Card Support save passive logs and statistics allowed passive
+Web Update OTA update firmware via web allowed maintenance
+CLI command line interface for diagnostics allowed
+Customizable settings and multiple device support allowed
 
-This repository documents the device’s advertised capabilities for transparency, but the project is strictly **defensive**. Offensive features that actively disrupt or impersonate other devices are **explicitly disabled** and are not used. This repo contains no code or instructions that enable attacks.
+What I will actually use and demonstrate
+Passive Wi Fi scanning SSID BSSID RSSI and channel with no transmission
+Passive station discovery and counts only on networks I own or have permission to test
+Promiscuous mode monitoring to count management frame spikes for detection only no transmitting
+Passive Bluetooth advertisement scanning no pairing and no injection
+Signal visualization and simple alerts on OLED and buzzer
+Optional local logging to micro SD and secure HTTP upload to a private server for later analysis
+GPS tagging to map events only on owned or permissioned networks
+OTA updates and a simple CLI for maintenance
 
+Safety and ethics must read
+Do not run offensive features such as deauth jamming fake portals or credential capture unless you have explicit written permission and the activity is legal where you are
+This repository contains no offensive code and no instructions for active attacks
+Always test only on equipment you own or where you have written permission and keep records of consent
 
-## Advertised features (factual list — OFFENSIVE ITEMS MARKED)
-> The list below reproduces the device’s advertised feature set for transparency. Offensive or abusive capabilities are explicitly marked **DISABLED** and will not be used in this project.
+Repo contents documentation only
+README file with project overview and safety notes
+JOURNAL file with development and testing log
+LICENSE file for project license
+BOM file with parts list and suppliers
+proof of work folder with wiring diagrams sketches and GitHub proof screenshots
 
-### Wi-Fi (advertised)
-- **Scan APs** — scan for nearby Wi-Fi access points (SSID / BSSID / RSSI). *(allowed — passive)*
-- **Scan Stations** — discover Wi-Fi client stations in range. *(allowed — passive)*
-- **Deauth Flood** — send deauthentication packets to disrupt connections. **(DISABLED — OFFENSIVE)**
-- **AP Clone Spam** — clone and spam access points. **(DISABLED — OFFENSIVE)**
-- **Karma** — respond to probe requests to collect clients. **(DISABLED — OFFENSIVE)**
-- **Evil Portal** — fake captive portal to capture credentials. **(DISABLED — OFFENSIVE)**
+How to contribute and learn
+This repo is for documentation and education only
+If you want to help open an issue or a pull request proposing defensive legal improvements like UI passive analysis or logging format
+Offensive or enabling content will be rejected
 
-### Bluetooth (advertised)
-- **Bluetooth Sniffer** — sniff Bluetooth advertisements in range. *(allowed — passive)*
-- **Detect Card Skimmers** — detect Bluetooth-enabled skimmers (monitoring only). *(allowed — passive)*
-- **Sour Apple** — perform Sour Apple attacks. **(DISABLED — OFFENSIVE)**
-- **Swiftpair Spam** — spam pairing requests at nearby devices. **(DISABLED — OFFENSIVE)**
-- **Samsung BLE Spam** — BLE spam targeting certain devices. **(DISABLED — OFFENSIVE)**
+Image disclaimer
+The wiring images in the proof of work folder are design stage mockups used to illustrate planned connections and pin mappings
+They are visual references only and in hand assembly photos and test logs will be uploaded once components are obtained
 
-### Other (advertised)
-- **Packet Monitor** — visualize Wi-Fi packet density on a channel. *(allowed — passive)*
-- **Signal Monitor** — show RSSI / signal strength of nearby devices. *(allowed — passive)*
-- **GPS** — support GPS modules for tagging event locations (for testing on owned devices). *(allowed — passive)*
-- **SD Card Support** — save passive logs and statistics to SD card. *(allowed — passive)*
-- **Web Update (OTA)** — update firmware via web interface (maintenance). *(allowed)*
-- **Command Line Interface (CLI)** — interact with device for diagnostics and monitoring. *(allowed)*
-- **Customizable Settings / Multiple Device Support** — UX/config options and compatibility features. *(allowed)*
-
-
-
-## What I will actually use / demonstrate (allowed & ethical)
-- Passive Wi-Fi scanning: SSID, BSSID, RSSI, channel (no transmission).
-- Passive station discovery and counts on **networks I own or have permission to test**.
-- Promiscuous-mode monitoring for counting management frame spikes as **detection only** (no injecting/transmitting).
-- Passive Bluetooth advertisement scanning (no pairing, no injection).
-- Signal strength visualization and immediate alerts on OLED + buzzer.
-- Optional local logging to a microSD card and secure HTTP upload to a private server for later analysis.
-- GPS tagging to map where events were observed (used only for owned/test networks).
-- OTA firmware updates and a simple CLI for maintenance (not for spreading offensive tools).
-
-
-
-## Safety & Ethics (must read)
-- **Do not** run offensive features (deauth, jamming, fake portals, credential capture, spam) unless you have explicit written permission from the device/network owner and the activity is legal where you are.
-- This repository **contains no offensive code** and does not provide instructions for performing active attacks.
-- When testing, always use equipment you own or have written permission to test. Keep records of consent for audits.
-
-
-
-## Repo contents (documentation only)
-- `README.md` — project overview and safety notes (this file).  
-- `JOURNAL.md` — development / testing log.  
-- `LICENSE` — project license.  
-- `hardware/parts-list.txt` — parts used (reference).  
-- `hardware/wiring-diagram.png` — wiring/diagram or photo(s) (upload your image).
-
-
-
-## How to contribute / learn
-This repo is for documentation and education. If you want to contribute, open an issue or PR proposing **defensive, legal** improvements (UI, passive analysis, logging format, educational materials). Offensive or enabling content will be rejected.
-
-**Image disclaimer:** The wiring images in `pcb_design/` are design-stage mockups (hand-drawn sketch + photoreal mockup) used to illustrate planned connections and pin mappings. They are visual references only — in-hand assembly photos and test logs will be uploaded once components are obtained.
-
-## Contact
-Mehru — https://github.com/CodeWithMehru
+Contact
+Mehru= https://github.com/CodeWithMehru
